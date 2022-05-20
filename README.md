@@ -23,16 +23,16 @@ Only for AI CUP group and private notes
 
 ---
 
-## 使用说明
+## 使用說明
 
-### 数据准备
+### 數據準備
 
-在文件夹`data`下放数据，分成三个文件夹: `train/test/val`，对应 训练/测试/验证 数据文件夹；
-每个子文件夹下，依据分类类别每个类别建立一个对应的文件夹，放置该类别的图片。
+在文件夾`data`下放數據，分成三個文件夾: `train/test/val`，對應 訓練/測試/驗證 數據文件夾；
+每個子文件夾下，依據分類類別每個類別建立一個對應的文件夾，放置該類別的圖片。
 
-数据准备完毕后，使用`utils/check_images.py`脚本，检查图像数据的有效性，防止在训练过程中遇到无效图片中止训练。
+數據準備完畢後，使用`utils/check_images.py`腳本，檢查圖像數據的有效性，防止在訓練過程中遇到無效圖片中止訓練。
 
-最终大概结构为：
+最終大概結構為：
 ```
 - data
   - train
@@ -51,21 +51,21 @@ Only for AI CUP group and private notes
 - ...
 ```
 
-### 部分重要配置参数说明
+### 部分重要配置參數說明
 
-针对`config.py`里的部分重要参数说明如下：
+針對`config.py`裡的部分重要參數說明如下：
 
-- `--data`: 数据集根目录，下面包含`train`, `test`, `val`三个目录的数据集，默认当前文件夹下`data/`目录；
-- `--image_size`: 输入应该为两个整数值，预训练模型的输入时正方形的，也就是[224, 224]之类的；
-实际可以根据自己需要更改，数据预处理时，会将图像 等比例resize然后再padding（默认用0 padding）到 指定的输入尺寸。
-- `--num_classes`: 分类模型的预测类别数；
-- `-b`: 设置batch size大小，默认为256，可根据GPU显存设置；
-- `-j`: 设置数据加载的进程数，默认为8，可根据CPU使用量设置；
-- `--criterion`: 损失函数，一种使用PyTorch自带的softmax损失函数，一种使用我自定义的sigmoid损失函数；
-sigmoid损失函数则是将多分类问题转化为多标签二分类问题，同时我增加了几个如GHM自定义的sigmoid损失函数，
-可通过`--weighted_loss --ghm_loss --threshold_loss --ohm_loss`指定是否启动；
-- `--lr`: 初始学习率，`main.py`里我默认使用Adam优化器；目前学习率的scheduler我使用的是`LambdaLR`接口，自定义函数规则如下，
-详细可参考`main.py`的`adjust_learning_rate(epoch, args)`函数：
+- `--data`: 數據集根目錄，下麵包含`train`, `test`, `val`三個目錄的數據集，默認當前文件夾下`data/`目錄；
+- `--image_size`: 輸入應該為兩個整數值，預訓練模型的輸入時正方形的，也就是[224, 224]之類的；
+實際可以根據自己需要更改，數據預處理時，會將圖像 等比例resize然後再padding（默認用0 padding）到 指定的輸入尺寸。
+- `--num_classes`: 分類模型的預測類別數；
+- `-b`: 設置batch size大小，默認為256，可根據GPU顯存設置；
+- `-j`: 設置數據加載的進程數，默認為8，可根據CPU使用量設置；
+- `--criterion`: 損失函數，一種使用PyTorch自帶的softmax損失函數，一種使用我自定義的sigmoid損失函數；
+sigmoid損失函數則是將多分類問題轉化為多標籤二分類問題，同時我增加了幾個如GHM自定義的sigmoid損失函數，
+可通過`--weighted_loss --ghm_loss --threshold_loss --ohm_loss`指定是否啟動；
+- `--lr`: 初始學習率，`main.py`裡我默認使用Adam優化器；目前學習率的scheduler我使用的是`LambdaLR`接口，自定義函數規則如下，
+詳細可參考`main.py`的`adjust_learning_rate(epoch, args)`函數：
 ```
 ~ warmup: 0.1
 ~ warmup + int([1.5 * (epochs - warmup)]/4.0): 1, 
@@ -73,30 +73,38 @@ sigmoid损失函数则是将多分类问题转化为多标签二分类问题，�
 ~ warmup + int([3.5 * (epochs - warmup)]/4.0) 0.01
 ~ epochs: 0.001
 ```
-- `--warmup`: warmup的迭代次数，训练前warmup个epoch会将 初始学习率*0.1 作为warmup期间的学习率；
-- `--epochs`: 训练的总迭代次数；
-- `--aug`: 是否使用数据增强，目前默认使用的是我自定义的数据增强方式：`dataloader/my_augment.py`；
-- `--mixup`: 数据增强mixup，默认 False；
-- `--multi_scale`: 多尺度训练，默认 False；
-- `--resume`: 权重文件路径，模型文件将被加载以进行模型初始化，`--jit`和`--evaluation`时需要指定；
-- `--jit`: 将模型转为JIT格式，利于部署；
-- `--evaluation`: 在测试集上进行模型评估；
-- `--knowledge`: 指定数据集，使用教师模型（配合resume选型指定）对该数据集进行预测，获取概率文件（知识)，
-生成的概率文件路径为`data/distill.txt`，同时生成原始概率`data/label.txt`;
-- `--distill`: 模型蒸馏（需要教师模型输出的概率文件)，默认 False，
-使用该模式训练前，需要先启用`--knowledge train --resume teacher.pth`对训练集进行测试，生成概率文件作为教师模型的概率；
-概率文件形式为`data`路径下`distill*.txt`模式的文件，有多个文件会都使用，取均值作为教师模型的概率输出指导接下来训练的学生模型；
-- `--visual_data`: 对指定数据集运行测试，并进行可视化；
-- `--visual_method`: 可视化方法，包含`cam`, `grad-cam`, `grad-camm++`三种；
-- `--make_curriculum`: 制作课程学习的课程文件；
-- `--curriculum_thresholds`: 不同课程中样本的阈值；
-- `--curriculum_weights`: 不同课程中样本的损失函数权重；
-- `--curriculum_learning`: 进行课程学习，从`data/curriculum.txt`中读取样本权重数据，训练时给对应样本的损失函数加权；
+- `--warmup`: warmup的迭代次數，訓練前warmup個epoch會將 初始學習率*0.1 作為warmup期間的學習率；
+- `--epochs`: 訓練的總迭代次數；
+- `--aug`: 是否使用數據增強，目前默認使用的是自定義的數據增強方式：`dataloader/my_augment.py`；
+- `--mixup`: 數據增強mixup，默認 False；
+- `--multi_scale`: 多尺度訓練，默認 False；
+- `--resume`: 權重文件路徑，模型文件將被加載以進行模型初始化，`--jit`和`--evaluation`時需要指定；
+- `--jit`: 將模型轉為JIT格式，利於部署；
+- `--evaluation`: 在測試集上進行模型評估；
+- `--knowledge`: 指定數據集，使用教師模型（配合resume選型指定）對該數據集進行預測，獲取概率文件（知識)，
+生成的概率文件路徑為`data/distill.txt`，同時生成原始概率`data/label.txt`;
+- `--distill`: 模型蒸餾（需要教師模型輸出的概率文件)，默認 False，
+使用該模式訓練前，需要先啟用`--knowledge train --resume teacher.pth`對訓練集進行測試，生成概率文件作為教師模型的概率；
+概率文件形式為`data`路徑下`distill*.txt`模式的文件，有多個文件會都使用，取均值作為教師模型的概率輸出指導接下來訓練的學生模型；
+- `--visual_data`: 對指定數據集運行測試，並進行可視化；
+- `--visual_method`: 可視化方法，包含`cam`, `grad-cam`, `grad-camm++`三種；
+- `--make_curriculum`: 製作課程學習的課程文件；
+- `--curriculum_thresholds`: 不同課程中樣本的閾值；
+- `--curriculum_weights`: 不同課程中樣本的損失函數權重；
+- `--curriculum_learning`: 進行課程學習，從`data/curriculum.txt`中讀取樣本權重數據，訓練時給對應樣本的損失函數加權；
 
-BTW，在`models/efficientnet/model.py`中增加了`sample-free`的思想，目前代码注释掉了，若需要可以借鉴使用。
-`sample-free`主要是我使用bce进行多标签二分类时，我希望任务偏好某些类别，所以在初始某些类别的bias上设置一个较大的数，提高初始概率。
-（具体计算公式可参考原论文 Is Sampling Heuristics Necessary in Training Deep Object Detectors）
-
-参数的详细说明可查看`config.py`文件。
+參數的詳細說明可查看`config.py`文件。
 
 ---
+
+## Reference
+
+[zheng-yuwei/PyTorch-Image-Classification](https://github.com/zheng-yuwei/PyTorch-Image-Classification)
+
+[d-li14/mobilenetv3.pytorch](https://github.com/d-li14/mobilenetv3.pytorch)
+
+[lukemelas/EfficientNet-PyTorch](https://github.com/lukemelas/EfficientNet-PyTorch)
+
+[zhanghang1989/ResNeSt](https://github.com/zhanghang1989/ResNeSt)
+
+[yizt/Grad-CAM.pytorch](https://github.com/yizt/Grad-CAM.pytorch)
