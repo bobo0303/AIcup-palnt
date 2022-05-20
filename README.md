@@ -3,7 +3,7 @@ Only for AI CUP group and private notes
 
 ---
 ## 農地作物現況調查影像辨識競賽 - 春季賽：AI作物影像判釋
-![image](<blockquote class="imgur-embed-pub" lang="en" data-id="a/p5h3qOa"  ><a href="//imgur.com/a/p5h3qOa">plant</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>)
+![image](https://i.imgur.com/TXrb6aw.jpeg)
 ---
 
 ## 文件結構說明
