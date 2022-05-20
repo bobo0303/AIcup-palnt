@@ -10,7 +10,7 @@ Only for AI CUP group and private notes
 ## 文件結構說明
 
 - `applications`: 包括`test.py, train.py, convert.py`等應用，提供給`main.py`調用；
-- `checkpoints`: 訓練好的模型文件保存目錄（當前可能不存在）；
+- `checkpoints`: 訓練好的模型文件保存目錄；
 - `criterions`: 自定義損失函數；
 - `data`: 訓練/測試/驗證/預測等數據集存放的路徑；
 - `dataloader`: 數據加載、數據增強、數據預處理（默認採用ImageNet方式）；
@@ -24,6 +24,9 @@ Only for AI CUP group and private notes
 - `main.py`: 總入口；
 - `requirements.txt`: 工程依賴包列表；
 
+## 預訓練與模型載點
+
+- `checkpoints` & `pretrained`: 目錄內 `Readme.md` 附有載點雲端；
 
 ---
 
