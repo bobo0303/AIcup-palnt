@@ -21,7 +21,7 @@ Only for AI CUP group and private notes
 - `pretrained`: 預訓練模型文件；
 - `utils`: 工具腳本：混淆矩陣、圖片數據校驗、模型結構打印、日誌等；
 - `config.py`: 配置文件；
-- `main.py`: 總入口；
+- `main.py`: 主運行檔案；
 - `requirements.txt`: 工程依賴包列表；
 
 ## 預訓練與模型載點
