@@ -1,5 +1,5 @@
 # AICUP-plant (TEAM_240)
-組員: louis52099, julian135707, wiwi61666166
+組員: louis52099, julian135707, wiwi61666166  
 Only for AI CUP group and private notes
 
 ---
