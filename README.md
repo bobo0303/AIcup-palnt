@@ -1,4 +1,4 @@
-# AICUP-plant
+# AICUP-plant (TEAM_240)
 Only for AI CUP group and private notes
 
 ---
