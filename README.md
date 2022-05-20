@@ -108,7 +108,8 @@ sigmoid損失函數則是將多分類問題轉化為多標籤二分類問題，�
 Method1:
 1. 若 `config.py --evaluate` 設定為 `True` 則會在訓練完畢後自動檢測 Test 資料夾內圖片
 2. 生成log檔也可重複觀看結果資料以及準確度
-3. 生成之 `ConfusionMatrix.png` 也可以確認測試資料之準確度
+3. 生成之 `ConfusionMatrix.png` 也可以確認測試資料之準確度  
+
 Method2:
 可以使用 `demos` 目錄下的 `main.py` 測試圖片 (未測試)
 
