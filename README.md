@@ -99,6 +99,8 @@ sigmoid損失函數則是將多分類問題轉化為多標籤二分類問題，�
 
 ## Reference
 
+[ilaydaDuratnir/python_image_enhancement](https://github.com/ilaydaDuratnir/python_image_enhancement)
+
 [zheng-yuwei/PyTorch-Image-Classification](https://github.com/zheng-yuwei/PyTorch-Image-Classification)
 
 [d-li14/mobilenetv3.pytorch](https://github.com/d-li14/mobilenetv3.pytorch)
@@ -108,3 +110,6 @@ sigmoid損失函數則是將多分類問題轉化為多標籤二分類問題，�
 [zhanghang1989/ResNeSt](https://github.com/zhanghang1989/ResNeSt)
 
 [yizt/Grad-CAM.pytorch](https://github.com/yizt/Grad-CAM.pytorch)
+
+---
+
