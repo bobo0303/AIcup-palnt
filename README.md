@@ -2,6 +2,8 @@
 Only for AI CUP group and private notes
 
 ---
+![image](https://github.com/bobo0303/AIcup-palnt/blob/main/Just_image/93c8c26b-0e96-44bc-9a53-1c96353ad340-big.jpg)
+---
 
 ## 文件結構說明
 
