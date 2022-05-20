@@ -1,0 +1,2 @@
+tensorboard --logdir C:\Users\user\PyTorch-Image-Classification-master\logs
+裡面只留一個檔案
