@@ -3,7 +3,7 @@ Only for AI CUP group and private notes
 
 ---
 ## 農地作物現況調查影像辨識競賽 - 春季賽：AI作物影像判釋
-![image]([https://github.com/bobo0303/AIcup-palnt/blob/main/Just_image/93c8c26b-0e96-44bc-9a53-1c96353ad340-big.jpg](https://imgur.com/gallery/p5h3qOa))
+![image](https://imgur.com/gallery/p5h3qOa)
 ---
 
 ## 文件結構說明
