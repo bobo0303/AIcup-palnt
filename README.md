@@ -115,8 +115,8 @@ Method2:
 
 ## Ensanble 
 1. 將三者模型測試出的結果 `.log` 檔運行 `write_csv.py` 將log檔轉換成讀取用的csv  
-    - 將各模型分兩類，圖片分類檔 & 純智信度檔 (共六個csv)
-2. 運行 `read_csv.py` 讀取csv檔生成最後的結果
+    - 將各模型分兩類，圖片分類檔 & 純置信度檔 (共六個csv)
+2. 運行 `read_csv.py` 讀取csv檔生成最後結果
 
 ---
 ## Result  
