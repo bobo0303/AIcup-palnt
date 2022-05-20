@@ -105,7 +105,7 @@ sigmoid損失函數則是將多分類問題轉化為多標籤二分類問題，�
 ---
 ## Train
 1. 資料夾 `data` 由上述引導放置資料
-2. `config.py` 由上述引導設定 (重點data、arch、num_classes、train、epochs、warmup、evaluate、resume、)
+2. `config.py` 由上述引導設定 (重點data、arch、num_classes、train、epochs、warmup、evaluate、resume...)
 3. 運行`main.py` 開始訓練
 
 ## Test  
