@@ -115,17 +115,17 @@ Method2:
 
 ## Result  
 - Model1 (efficientnet_b4_10) 資料為訓練資料分割5%
-![image]()
+![image](https://i.imgur.com/V2gEWRK.png)
 
 - Model2 (efficientnet_b4_10+10) 資料為訓練資料分割5%
-![image]()
+![image](https://i.imgur.com/JYN1VSq.png)
 
 - Model3 (efficientnet_b5_20) 資料為訓練資料分割5%
-![image]()
+![image](https://i.imgur.com/mJy7MKb.png)
 
 - #失敗例子# (efficiennet_b6_10) 資料為訓練資料分割5%
   - 未做資料增強 & 模型太大 Overfitting
-![image]()
+![image](https://i.imgur.com/2Dtfd0O.png)
 
 
 
