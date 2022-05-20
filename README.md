@@ -119,7 +119,7 @@ Method2:
 2. 運行 `read_csv.py` 讀取csv檔生成最後結果
 
 ---
-## Result  
+## Result (ConfusionMatrix)  
 - Model1 (efficientnet_b4_10) 資料為訓練資料分割5%
 ![image](https://i.imgur.com/V2gEWRK.png)
 
