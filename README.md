@@ -22,7 +22,7 @@ Only for AI CUP group and private notes
 - `utils`: 工具腳本：混淆矩陣、圖片數據校驗、模型結構打印、日誌等；
 - `config.py`: 配置文件；
 - `main.py`: 主運行檔案；
-- `requirements.txt`: 工程依賴包列表；
+- `requirements.txt`: 環境依賴包列表；
 
 ## 預訓練與模型載點
 
@@ -62,7 +62,7 @@ Only for AI CUP group and private notes
 
 針對`config.py`裡的部分重要參數說明如下：
 
-- `--data`: 數據集根目錄，下麵包含`train`, `test`, `val`三個目錄的數據集，默認當前文件夾下`data/`目錄；
+- `--data`: 數據集根目錄，下面包含`train`, `test`, `val`三個目錄的數據集，默認當前文件夾下`data/`目錄；
 - `--image_size`: 輸入應該為兩個整數值，預訓練模型的輸入時正方形的，也就是[224, 224]之類的；
 實際可以根據自己需要更改，數據預處理時，會將圖像 等比例resize然後再padding（默認用0 padding）到 指定的輸入尺寸。
 - `--num_classes`: 分類模型的預測類別數；
