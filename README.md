@@ -3,7 +3,7 @@ Only for AI CUP group and private notes
 
 ---
 ## 農地作物現況調查影像辨識競賽 - 春季賽：AI作物影像判釋
-![image](https://github.com/bobo0303/AIcup-palnt/blob/main/Just_image/93c8c26b-0e96-44bc-9a53-1c96353ad340-big.jpg)
+![image]([https://github.com/bobo0303/AIcup-palnt/blob/main/Just_image/93c8c26b-0e96-44bc-9a53-1c96353ad340-big.jpg](https://imgur.com/gallery/p5h3qOa))
 ---
 
 ## 文件結構說明
@@ -114,7 +114,20 @@ Method2:
 可以使用 `demos` 目錄下的 `main.py` 測試圖片 (未測試)
 
 ## Result  
-Model1
+- Model1 (efficientnet_b4_10) 資料為訓練資料分割5%
+![image]()
+
+- Model2 (efficientnet_b4_10+10) 資料為訓練資料分割5%
+![image]()
+
+- Model3 (efficientnet_b5_20) 資料為訓練資料分割5%
+![image]()
+
+- #失敗例子# (efficiennet_b6_10) 資料為訓練資料分割5%
+  - 未做資料增強 & 模型太大 Overfitting
+![image]()
+
+
 
 ---
 
