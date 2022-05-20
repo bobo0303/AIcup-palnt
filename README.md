@@ -124,7 +124,7 @@ Method2:
 ![image](https://i.imgur.com/mJy7MKb.png)
 
 - #失敗例子# (efficiennet_b6_10) 資料為訓練資料分割5%
-  - 未做資料增強 & 模型太大 Overfitting
+  - 未做資料增強 & 模型太大 Overfitting (少數類別準確率極低)
 ![image](https://i.imgur.com/2Dtfd0O.png)
 
 
