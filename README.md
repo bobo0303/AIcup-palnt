@@ -110,7 +110,7 @@ Method1:
 2. 生成log檔也可重複觀看結果資料以及準確度
 3. 生成之 `ConfusionMatrix.png` 也可以確認測試資料之準確度  
 
-Method2:
+Method2:  
 可以使用 `demos` 目錄下的 `main.py` 測試圖片 (未測試)
 
 ---
